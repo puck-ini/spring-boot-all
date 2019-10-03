@@ -46,7 +46,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient("test")
                 .secret(passwordEncoder.encode("test1234"))
-                .authorizedGrantTypes("password","refresh_token")
+                .authorizedGrantTypes("password","refresh_token")//refresh_token: warn: Handling error: IllegalStateException, UserDetailsService is required.
                 .accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(864000)
                 .scopes("all", "a", "b", "c")
