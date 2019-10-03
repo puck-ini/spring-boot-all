@@ -22,5 +22,15 @@ public class UserController {
         return Jwts.parser().setSigningKey("test_key".getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
     }
 
+    @GetMapping("/admin")
+    public String adminTest(){
+        return "admin test";
+    }
+
+    @GetMapping("/user")
+    public String usetTest(){
+        return "user test";
+    }
+
 }
 

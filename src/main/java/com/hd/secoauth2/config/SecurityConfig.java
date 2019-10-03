@@ -31,7 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .authorizeRequests() // 授权配置
                 .anyRequest()  // 所有请求
-                .authenticated() // 都需要认证
+                .authenticated()// 都需要认证
+//                .antMatchers("/admin/test").hasAnyRole("admin")
+//                .antMatchers("/user/test").hasAnyRole("user")
                 .and()
                 .csrf().disable();
     }
