@@ -1,0 +1,11 @@
+server:
+  port: 9999
+minio:
+  # Minio server addr
+  host: http://39.108.248.242:9000
+  # MINIO_ACCESS_KEY
+  access-key: zchzh
+  # MINIO_SECRET_KEY
+  secret-key: zeng@123
+  # default bucket
+  default-bucket: test
