@@ -24,6 +24,8 @@
         <module>quartz</module>
         <module>xxl-job</module>
         <module>screw</module>
+        <module>spring-aop</module>
+        <module>spring-data-jpa</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
