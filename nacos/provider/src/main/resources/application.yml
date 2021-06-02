@@ -1,0 +1,23 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+dubbo:
+  registry:
+    address: nacos://localhost:8848
+  scan:
+    base-packages: com.zchzh.provider
+  protocol:
+    port: -1
+    payload: 100000000
+  provider:
+    timeout: 30000

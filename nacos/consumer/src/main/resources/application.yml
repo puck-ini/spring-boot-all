@@ -1,0 +1,24 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+dubbo:
+  registry:
+    address: nacos://localhost:8848
+  scan:
+    base-packages: com.zchzh.consumer
+  protocol:
+    port: -1
+    payload: 100000000
+  #    name: hessian
+  provider:
+    timeout: 30000
