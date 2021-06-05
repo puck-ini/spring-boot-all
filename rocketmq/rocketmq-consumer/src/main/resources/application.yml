@@ -1,0 +1,20 @@
+server:
+  port: 8001 #consumer服务端口为8001；
+spring:
+  application:
+    name: consumer #服务名称为consumer
+  cloud:
+    nacos:
+      server-addr: localhost:8848 #指定Nacos注册中心的地址
+    #spring cloud stream 配置
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input:
+          destination: stream-test-topic #指定topic
+          #RocketMQ一定要设置 不然无法启动项目
+          group: binder-group
+rocketmq:
+  name-server: 127.0.0.1:9876
