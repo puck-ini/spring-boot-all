@@ -28,6 +28,7 @@
         <module>spring-data-jpa</module>
         <module>spring-event-listener</module>
         <module>rocketmq</module>
+        <module>gateway</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
