@@ -1,0 +1,9 @@
+user:
+  username: test
+  password: test
+  enable: true
+
+info:
+  name: info
+  version: 1.0.0
+  enable: true
