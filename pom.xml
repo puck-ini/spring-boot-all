@@ -19,6 +19,7 @@
         <module>a-template</module>
         <module>redis</module>
         <module>mongo</module>
+        <module>nacos</module>
         <module>minio</module>
         <module>quartz</module>
         <module>xxl-job</module>
