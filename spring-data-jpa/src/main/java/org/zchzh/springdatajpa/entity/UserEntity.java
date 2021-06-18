@@ -8,9 +8,7 @@ import org.zchzh.springdatajpa.types.Password;
 import org.zchzh.springdatajpa.types.UserType;
 import org.zchzh.springdatajpa.types.Username;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 /**
  * @author zengchzh
@@ -40,6 +38,9 @@ public class UserEntity extends BaseEntity {
     private UserType userType;
 
     private boolean deleted;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    private UserDetail userDetail;
 
     public UserEntity() {
         this.userType = UserType.USER;

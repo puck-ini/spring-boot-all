@@ -3,11 +3,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zchzh.springdatajpa.convert.UserConvert;
 import org.zchzh.springdatajpa.dto.UserDTO;
+import org.zchzh.springdatajpa.entity.UserDetail;
 import org.zchzh.springdatajpa.entity.UserEntity;
 import org.zchzh.springdatajpa.service.UserService;
 import org.zchzh.springdatajpa.types.Username;
@@ -56,6 +58,18 @@ public class UserController {
         UserEntity userEntity2 = new UserEntity();
         UserConvert.toEntity(UserConvert.toDto(userEntity1));
         return UserConvert.toDto(userEntity);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @PostMapping("/v2/add")
+    public UserEntity addV2() {
+        UserEntity userEntity = UserEntity.newAdmin().username("test").password("Test12345******");
+//        UserDetail userDetail = new UserDetail();
+//        userDetail.setName("qwe");
+//        userDetail.setAddress("123");
+//        userDetail.setAge(12);
+//        userEntity.setUserDetail(userDetail);
+        return userService.create(userEntity);
     }
 
     @GetMapping("/username")
