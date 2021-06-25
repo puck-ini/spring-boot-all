@@ -64,11 +64,11 @@ public class UserController {
     @PostMapping("/v2/add")
     public UserEntity addV2() {
         UserEntity userEntity = UserEntity.newAdmin().username("test").password("Test12345******");
-//        UserDetail userDetail = new UserDetail();
-//        userDetail.setName("qwe");
-//        userDetail.setAddress("123");
-//        userDetail.setAge(12);
-//        userEntity.setUserDetail(userDetail);
+        UserDetail userDetail = new UserDetail();
+        userDetail.setName("qwe");
+        userDetail.setAddress("123");
+        userDetail.setAge(12);
+        userEntity.setUserDetail(userDetail);
         return userService.create(userEntity);
     }
 

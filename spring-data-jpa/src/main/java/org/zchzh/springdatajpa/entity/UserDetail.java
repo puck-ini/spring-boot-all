@@ -3,10 +3,7 @@ package org.zchzh.springdatajpa.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -19,6 +16,8 @@ import java.io.Serializable;
 public class UserDetail implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @OneToOne
 //    @JoinColumn(name = "user_id")
     private UserEntity userEntity;
