@@ -39,7 +39,7 @@ public class UserEntity extends BaseEntity {
 
     private boolean deleted;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    @OneToOne(cascade = CascadeType.ALL)
     private UserDetail userDetail;
 
     public UserEntity() {

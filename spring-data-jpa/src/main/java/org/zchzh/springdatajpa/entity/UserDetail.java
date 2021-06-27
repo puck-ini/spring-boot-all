@@ -18,8 +18,8 @@ public class UserDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-//    @JoinColumn(name = "user_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userDetail")
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private UserEntity userEntity;
 
     private String name;
