@@ -1,6 +1,9 @@
 package org.zchzh.springdatajpa.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -10,6 +13,8 @@ import java.io.Serializable;
  */
 
 @Data
+@ToString
+@NoArgsConstructor
 public class UserDTO implements Serializable {
 
     private Long id;
@@ -20,4 +25,24 @@ public class UserDTO implements Serializable {
 
     private String userType;
 
+    private String name;
+
+    private Integer age;
+
+    public UserDTO(Long id, String username, String password, String name, Integer age) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.age = age;
+    }
+
+    public UserDTO(Long id, String username, String password, String userType, String name, Integer age) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.userType = userType;
+        this.name = name;
+        this.age = age;
+    }
 }
