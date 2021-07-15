@@ -42,6 +42,8 @@ public class UserEntity extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL)
     private UserDetail userDetail;
 
+    private Long userDetail2Id;
+
     public UserEntity() {
         this.userType = UserType.USER;
     }

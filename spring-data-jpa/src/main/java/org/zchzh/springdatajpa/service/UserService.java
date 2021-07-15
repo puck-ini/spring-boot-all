@@ -1,7 +1,9 @@
 package org.zchzh.springdatajpa.service;
 
 
+import org.springframework.data.domain.Page;
 import org.zchzh.springdatajpa.entity.UserEntity;
+import org.zchzh.springdatajpa.request.SearchReq;
 import org.zchzh.springdatajpa.types.Username;
 
 import java.util.List;
@@ -11,6 +13,14 @@ import java.util.List;
  * @date 2021/5/11
  */
 public interface UserService extends BaseCrudService<UserEntity, Long> {
+
+
+    /**
+     * 复杂查询
+     * @param req 查询参数
+     * @return 返回分页数据
+     */
+    Page<UserEntity> search(SearchReq req);
 
 
     /**

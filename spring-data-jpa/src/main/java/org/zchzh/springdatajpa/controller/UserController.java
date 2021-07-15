@@ -11,6 +11,7 @@ import org.zchzh.springdatajpa.convert.UserConvert;
 import org.zchzh.springdatajpa.dto.UserDTO;
 import org.zchzh.springdatajpa.entity.UserDetail;
 import org.zchzh.springdatajpa.entity.UserEntity;
+import org.zchzh.springdatajpa.request.SearchReq;
 import org.zchzh.springdatajpa.service.UserService;
 import org.zchzh.springdatajpa.types.Username;
 
@@ -80,5 +81,10 @@ public class UserController {
     @GetMapping("/test")
     public List<UserDTO> test() {
         return userService.findAllByUsername(new Username("test"), UserDTO.class);
+    }
+
+    @GetMapping("/search")
+    public Page<UserEntity> search(SearchReq req) {
+        return userService.search(req);
     }
 }

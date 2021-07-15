@@ -2,6 +2,7 @@ package org.zchzh.springdatajpa.repository;
 
 
 
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.zchzh.springdatajpa.entity.UserEntity;
 import org.zchzh.springdatajpa.types.Username;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @author zengchzh
  * @date 2021/5/4
  */
-public interface UserRepo extends BaseRepo<UserEntity, Long> {
+public interface UserRepo extends BaseRepo<UserEntity, Long>, JpaSpecificationExecutor<UserEntity> {
 
     /**
      * 通过名字获取
