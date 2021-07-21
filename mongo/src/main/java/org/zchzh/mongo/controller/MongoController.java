@@ -2,14 +2,11 @@ package org.zchzh.mongo.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.zchzh.mongo.service.MongoService;
 
-import java.util.Arrays;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -57,5 +54,17 @@ public class MongoController {
                 }));
         log.info("end =================");
         log.info("spend time ------------- " + (System.currentTimeMillis() - start));
+    }
+
+
+
+    @GetMapping("/download")
+    public void download(@RequestParam("id") String id,
+                         HttpServletResponse response) {
+        try {
+            mongoService.download(id, response);
+        } catch (Exception e) {
+            log.error("download error", e);
+        }
     }
 }
