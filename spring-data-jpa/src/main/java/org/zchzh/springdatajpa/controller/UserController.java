@@ -4,10 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.zchzh.springdatajpa.convert.UserConvert;
 import org.zchzh.springdatajpa.dto.UserDTO;
 import org.zchzh.springdatajpa.entity.UserDetail;
@@ -79,6 +76,18 @@ public class UserController {
         UserEntity userEntity = userService.get(id).get();
         userEntity.getUserDetail().setAge(789);
         return userService.update(userEntity);
+    }
+
+    @DeleteMapping("/remove/detail")
+    public UserEntity removeDetail(Long id) {
+        UserEntity userEntity = userService.get(id).get();
+        userEntity.setUserDetail(null);
+        return userService.update(userEntity);
+    }
+
+    @DeleteMapping("/remove")
+    public UserEntity remove(Long id) {
+        return userService.remove(id);
     }
 
     @GetMapping("/username")
