@@ -40,6 +40,7 @@ public class UserEntity extends BaseEntity {
     private boolean deleted;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private UserDetail userDetail;
 
     private Long userDetail2Id;
