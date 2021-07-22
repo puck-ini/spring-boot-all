@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zchzh.springdatajpa.convert.UserConvert;
 import org.zchzh.springdatajpa.dto.UserDTO;
@@ -71,6 +72,13 @@ public class UserController {
         userDetail.setAge(12);
         userEntity.setUserDetail(userDetail);
         return userService.create(userEntity);
+    }
+
+    @PutMapping("/update")
+    public UserEntity update(Long id) {
+        UserEntity userEntity = userService.get(id).get();
+        userEntity.getUserDetail().setAge(789);
+        return userService.update(userEntity);
     }
 
     @GetMapping("/username")
