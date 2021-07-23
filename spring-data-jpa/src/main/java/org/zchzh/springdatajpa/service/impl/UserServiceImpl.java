@@ -53,11 +53,14 @@ public class UserServiceImpl extends AbstractCrudService<UserEntity, Long> imple
                     // 多表关联，依赖于@OneToOne
                     Join<UserEntity, UserDetail> join = root.join("userDetail", JoinType.INNER);
                     predicateList.add(cb.like(join.get("name").as(String.class), "%" + req.getName() + "%"));
+                    // 根据字段排序
+                    query.orderBy(cb.desc(join.get("age").as(Integer.class)));
                 }
 
                 Predicate[] predicateArr = new Predicate[predicateList.size()];
                 predicateList.toArray(predicateArr);
-                return cb.and(predicateArr);
+                query.where(cb.and(predicateArr));
+                return query.getRestriction();
             }
         };
         return userRepo.findAll(specification, PageRequest.of(req.getPageNum(), req.getPageSize()));
