@@ -4,8 +4,8 @@ minio:
   # Minio server addr
   host: http://127.0.0.1:9000
   # MINIO_ACCESS_KEY
-  access-key: test
+  access-key: minioadmin
   # MINIO_SECRET_KEY
-  secret-key: test
+  secret-key: minioadmin
   # default bucket
   default-bucket: test
