@@ -1,0 +1,15 @@
+2021-08-10 22:19:28.434  INFO 8880 --- [main] org.zchzh.logback.LogbackApplication     : Starting LogbackApplication on LAPTOP-6U7U0SHV with PID 8880 (D:\intellij-workspace\uwplus\spring-boot-all\spring-logback\target\classes started by zengchzh in D:\intellij-workspace\uwplus\spring-boot-all)
+2021-08-10 22:19:28.434  INFO 8880 --- [main] org.zchzh.logback.LogbackApplication     : No active profile set, falling back to default profiles: default
+2021-08-10 22:19:29.105  INFO 8880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-10 22:19:29.121  INFO 8880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-10 22:19:29.121  INFO 8880 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-08-10 22:19:29.121  INFO 8880 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2021-08-10 22:19:29.121  INFO 8880 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-08-10 22:19:29.121  INFO 8880 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-08-10 22:19:29.121  INFO 8880 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-08-10 22:19:29.199  INFO 8880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-10 22:19:29.199  INFO 8880 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 719 ms
+2021-08-10 22:19:29.324  INFO 8880 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-10 22:19:29.477  INFO 8880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-10 22:19:29.486  INFO 8880 --- [main] org.zchzh.logback.LogbackApplication     : Started LogbackApplication in 1.556 seconds (JVM running for 3.083)
+2021-08-10 22:21:53.810  INFO 8880 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
