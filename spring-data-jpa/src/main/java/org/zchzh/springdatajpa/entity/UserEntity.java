@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Data
 @ToString(callSuper = true)
 @Where(clause = "deleted = false")
-public class UserEntity extends BaseEntity {
+public class UserEntity extends BaseEntity<UserEntity> {
 
     /**
      * 用户名

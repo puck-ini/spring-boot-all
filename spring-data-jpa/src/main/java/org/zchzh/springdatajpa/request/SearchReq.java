@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,7 +27,9 @@ public class SearchReq implements Serializable {
 
     private String name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date start;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date end;
 }

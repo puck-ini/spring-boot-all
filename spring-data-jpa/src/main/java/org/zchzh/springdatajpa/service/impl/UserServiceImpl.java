@@ -12,6 +12,7 @@ import org.zchzh.springdatajpa.repository.UserRepo;
 import org.zchzh.springdatajpa.request.SearchReq;
 import org.zchzh.springdatajpa.service.UserService;
 import org.zchzh.springdatajpa.types.Username;
+import org.zchzh.springdatajpa.util.SqlFilter;
 
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
@@ -44,10 +45,10 @@ public class UserServiceImpl extends AbstractCrudService<UserEntity, Long> imple
 //                    predicateList.add(cb.like(root.get("username").as(String.class), "%" + req.getName() + "%"));
 //                }
                 if (Objects.nonNull(req.getStart())) {
-                    predicateList.add(cb.greaterThanOrEqualTo(root.get("createTime").as(Date.class), req.getStart()));
+                    predicateList.add(cb.greaterThanOrEqualTo(root.get("createTime"), req.getStart()));
                 }
                 if (Objects.nonNull(req.getEnd())) {
-                    predicateList.add(cb.lessThanOrEqualTo(root.get("createTime").as(Date.class), req.getEnd()));
+                    predicateList.add(cb.lessThanOrEqualTo(root.get("createTime"), req.getEnd()));
                 }
                 if (Objects.nonNull(req.getName())) {
                     // 多表关联，依赖于@OneToOne
@@ -63,6 +64,11 @@ public class UserServiceImpl extends AbstractCrudService<UserEntity, Long> imple
                 return query.getRestriction();
             }
         };
+//        List<SqlFilter> sqlFilters = new ArrayList<>();
+//        sqlFilters.add(SqlFilter.andGe("createTime", req.getStart()));
+//        sqlFilters.add(SqlFilter.andLe("createTime", req.getEnd()));
+//        UserEntity entity = new UserEntity();
+//        return userRepo.findAll(new UserEntity().toSpecification(sqlFilters), PageRequest.of(req.getPageNum(), req.getPageSize()));
         return userRepo.findAll(specification, PageRequest.of(req.getPageNum(), req.getPageSize()));
     }
 
