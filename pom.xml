@@ -36,6 +36,7 @@
         <module>demo-long-polling</module>
         <module>spring-refresh-config</module>
         <module>spring-logback</module>
+        <module>spring-validator</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
