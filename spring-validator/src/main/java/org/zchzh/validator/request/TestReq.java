@@ -2,6 +2,7 @@ package org.zchzh.validator.request;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import org.zchzh.validator.annotation.PasswordValidator;
 
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -39,6 +40,9 @@ public class TestReq {
 
     @Length(min = 1, max = 3)
     private String length;
+
+    @PasswordValidator
+    private String password;
 
 
 
