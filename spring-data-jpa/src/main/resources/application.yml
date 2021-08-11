@@ -8,5 +8,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        order_by:
+          #数据库在排序的时候，DESC下NULL默认在最前，此处设置为最后
+          default_null_ordering: last
+#          default_null_ordering: first
 server:
   port: 9003
