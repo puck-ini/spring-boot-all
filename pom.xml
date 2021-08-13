@@ -37,6 +37,7 @@
         <module>spring-refresh-config</module>
         <module>spring-logback</module>
         <module>spring-validator</module>
+        <module>spring-task-schedule</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
