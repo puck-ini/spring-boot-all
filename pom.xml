@@ -39,6 +39,7 @@
         <module>spring-validator</module>
         <module>spring-task-schedule</module>
         <module>swagger</module>
+        <module>dubbo</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
