@@ -1,0 +1,28 @@
+server:
+  port: 9006
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          # 让gateway 通过服务发现找到其他服务
+          enabled: true
+      routes:
+        - id: demo-1 # 全局唯一
+          # 需要配置断言才能使用 1. lb://{服务名}，通过服务名转发 2. http://ip:port，通用配置
+          uri: lb://demo-1-c
+          predicates:
+            - Path=/demo-1/**
+        - id: demo-2 # 全局唯一
+          # 需要配置断言才能使用 1. lb://{服务名}，通过服务名转发 2. http://ip:port，通用配置
+          uri: lb://demo-2
+          predicates:
+            - Path=/demo-2/**
+            #- id: baidu # 全局唯一
+            # 需要配置断言才能使用 1. lb://{服务名}，通过服务名转发 2. http://ip:port，通用配置
+            #uri: http://baidu.com:80/
+            #predicates:
+            #- Path=/bd
