@@ -42,6 +42,7 @@
         <module>dubbo</module>
         <module>elasticsearch</module>
         <module>sentinel</module>
+        <module>websocket</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
