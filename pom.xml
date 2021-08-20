@@ -41,6 +41,7 @@
         <module>swagger</module>
         <module>dubbo</module>
         <module>elasticsearch</module>
+        <module>sentinel</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
