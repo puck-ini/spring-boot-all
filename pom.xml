@@ -43,6 +43,7 @@
         <module>elasticsearch</module>
         <module>sentinel</module>
         <module>websocket</module>
+        <module>kkfileview</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
