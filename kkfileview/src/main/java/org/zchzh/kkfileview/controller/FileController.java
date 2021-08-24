@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zchzh.kkfileview.service.StorageService;
@@ -34,29 +35,11 @@ public class FileController {
 
     @GetMapping("/preview")
     public String preview(String fileName) {
-        return kkPath + "/onlinePreview?url=" + convertUrl("http://localhost:8080/download?fileName=" + fileName);
+        String downloadUrl = "http://localhost:8080/download?fileName=";
+        // http/https下载流url需要添加 &fullfilename= 参数指定完整的文件名， 3.x 版本以上需要 base64编码
+        return kkPath + Base64Utils.encodeToString((downloadUrl + fileName + "&fullfilename=" + fileName).getBytes());
     }
 
-    /**
-     * 字符串加密，类似于JavaScript的encodeURIComponent方法
-     * @param url
-     * @return
-     */
-    private String convertUrl(String url){
-        String result = "";
-        try {
-            result = URLEncoder.encode(url, "UTF-8")
-                    .replaceAll("\\+", "%20")
-                    .replaceAll("%21", "!")
-                    .replaceAll("%27", "'")
-                    .replaceAll("%28", "(")
-                    .replaceAll("%29", ")")
-                    .replaceAll("%7E", "~");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
     @GetMapping("/download")
     public void download(String fileName, HttpServletResponse response) {
         try {
