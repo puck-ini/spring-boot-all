@@ -45,6 +45,8 @@
         <module>websocket</module>
         <module>kkfileview</module>
         <module>spring-transactional</module>
+        <module>spring-boot-cors</module>
+        <module>querydsl</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
