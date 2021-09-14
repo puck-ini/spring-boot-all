@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.concurrent.TimeUnit;
 
@@ -95,6 +96,15 @@ public class TestApplicationTests {
     @RepeatedTest(value = 3)
     void testRepeatedTest() {
         System.out.println("测试方法重复执行");
+    }
+
+    /**
+     * 测试执行结束回滚操作，主要用于对数据库操作
+     */
+    @Test
+    @Rollback
+    void testRollBack() {
+
     }
 
 
