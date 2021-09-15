@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
@@ -24,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @Slf4j
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class TestControllerTest {
 
 
@@ -32,12 +33,15 @@ class TestControllerTest {
 //    @Qualifier("simpleRestTemplate")
     private RestTemplate restTemplate;
 
-    private static final String URL = "http://127.0.0.1:8080";
+    @LocalServerPort
+    private int port;
+
+    private static final String URL = "http://127.0.0.1:";
 
 
     @Test
     void getv1() {
-        Result result = restTemplate.getForObject(URL + "/v1/get", Result.class, new TestReq());
+        Result result = restTemplate.getForObject(URL + port + "/v1/get", Result.class, new TestReq());
         Assert.assertNotNull(result);
         log.info(result.toString());
     }
