@@ -43,13 +43,13 @@ public class FileController {
     @GetMapping("/download")
     public void download(String fileName, HttpServletResponse response) {
         try {
+            @Cleanup InputStream is = storageService.getInputStream(fileName);
             fileName = URLEncoder.encode(fileName,"UTF-8");
             response.setHeader("Access-Control-Expose-Headers","Content-Disposition");
             response.setHeader("Content-Disposition",
                     "attachment;filename=" + fileName + ";filename*=utf-8''" + fileName);
             @Cleanup OutputStream os = response.getOutputStream();
             //获取数据
-            @Cleanup InputStream is = storageService.getInputStream(fileName);
             IOUtils.copy(is,os);
             os.flush();
         } catch (IOException e) {
