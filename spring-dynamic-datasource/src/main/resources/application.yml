@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    generate-ddl: true
+  datasource:
+    first:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://127.0.0.1:5432/test_pg1?currentSchema=test_pg1
+      username: postgres
+      password: root
+    second:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://127.0.0.1:5432/test_pg2?currentSchema=test_pg2
+      username: postgres
+      password: root
+
+#  main:
+#    allow-bean-definition-overriding: true
