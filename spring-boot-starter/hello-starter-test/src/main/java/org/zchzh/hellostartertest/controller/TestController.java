@@ -1,8 +1,10 @@
-package org.zchzh.hellostartertest;
+package org.zchzh.hellostartertest.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.zchzh.hellostarter.HelloService;
 
 /**
@@ -10,14 +12,14 @@ import org.zchzh.hellostarter.HelloService;
  * @date 2021/1/27
  */
 
-@SpringBootTest
-public class TestStarter {
+@RestController
+public class TestController {
 
     @Autowired
     private HelloService helloService;
 
-    @Test
-    public void test(){
-        System.out.println(helloService.get());
+    @GetMapping("/test")
+    public String test(){
+        return helloService.get();
     }
 }

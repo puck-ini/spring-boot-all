@@ -25,7 +25,13 @@ public class HelloAutoConfigure {
 
     @Bean
     @ConditionalOnMissingBean
-    public HelloService helloService () {
+    public HelloService helloService() {
         return new HelloService(helloProperties.getMsg());
+    }
+
+
+    @Bean
+    public HelloController helloController() {
+        return new HelloController();
     }
 }
