@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://127.0.0.1:5432/test_data?currentSchema=test_data
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        order_by:
+          #数据库在排序的时候，DESC下NULL默认在最前，此处设置为最后
+          default_null_ordering: last
+#          default_null_ordering: first
+server:
+  port: 9003

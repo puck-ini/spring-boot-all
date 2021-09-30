@@ -59,6 +59,7 @@
         <mybatis.pagehelper.version>1.2.10</mybatis.pagehelper.version>
         <guava.version>30.0-jre</guava.version>
         <fastjson.version>1.2.75</fastjson.version>
+        <quertdsl.version>4.3.1</quertdsl.version>
     </properties>
     <dependencies>
 <!--        <dependency>-->
@@ -144,6 +145,19 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!--QueryDSL支持-->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${quertdsl.version}</version>
+            </dependency>
+            <!--QueryDSL支持-->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <version>${quertdsl.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
