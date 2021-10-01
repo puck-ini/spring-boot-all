@@ -60,6 +60,7 @@
         <guava.version>30.0-jre</guava.version>
         <fastjson.version>1.2.75</fastjson.version>
         <quertdsl.version>4.3.1</quertdsl.version>
+        <xxljob.version>2.3.0</xxljob.version>
     </properties>
     <dependencies>
 <!--        <dependency>-->
@@ -158,6 +159,13 @@
                 <groupId>com.querydsl</groupId>
                 <artifactId>querydsl-jpa</artifactId>
                 <version>${quertdsl.version}</version>
+            </dependency>
+
+            <!-- xxl-job-core -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxljob.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
