@@ -5,11 +5,10 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import org.zchzh.condition.test.DefaultPrint;
-import org.zchzh.condition.test.HelloPrint;
-import org.zchzh.condition.test.Print;
-import org.zchzh.condition.test.TestPrint;
+import org.zchzh.condition.condition.TestCondition;
+import org.zchzh.condition.test.*;
 
 import java.time.LocalDateTime;
 
@@ -69,6 +68,18 @@ public class ConditionTestConfig {
     public Print defaultPrint2() {
         log.info("ConditionalOnBean " + LocalDateTime.now());
         Print print = new DefaultPrint();
+        print.print();
+        return print;
+    }
+
+    /**
+     * 自定义 condition
+     * @return
+     */
+    @Bean
+    @Conditional(TestCondition.class)
+    public Print hiPrint() {
+        Print print = new HiPrint();
         print.print();
         return print;
     }
