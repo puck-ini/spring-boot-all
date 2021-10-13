@@ -50,6 +50,7 @@
         <module>spring-resttemplate</module>
         <module>spring-webflux</module>
         <module>spring-condition</module>
+        <module>spring-filter</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
