@@ -51,6 +51,7 @@
         <module>spring-webflux</module>
         <module>spring-condition</module>
         <module>spring-filter</module>
+        <module>spring-interceptor</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
