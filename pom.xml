@@ -52,6 +52,7 @@
         <module>spring-condition</module>
         <module>spring-filter</module>
         <module>spring-interceptor</module>
+        <module>spring-security-oauth2-sso</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
