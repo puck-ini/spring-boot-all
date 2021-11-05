@@ -1,6 +1,7 @@
 package org.zchzh.provider;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.rpc.RpcContext;
 import org.zchzh.api.HelloService;
 
 /**
@@ -12,6 +13,7 @@ import org.zchzh.api.HelloService;
 public class HelloServiceImpl implements HelloService {
     @Override
     public String hello() {
+        String test = RpcContext.getContext().getAttachment("test");
         return "hello dubbo";
     }
 }

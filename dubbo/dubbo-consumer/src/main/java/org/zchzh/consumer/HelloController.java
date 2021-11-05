@@ -1,6 +1,7 @@
 package org.zchzh.consumer;
 
 import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zchzh.api.HelloService;
@@ -18,6 +19,9 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return helloService.hello();
+        RpcContext.getContext().setAttachment("test", "hello world");
+        String result  = helloService.hello();
+        String test = RpcContext.getContext().getAttachment("test");
+        return result;
     }
 }
