@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
 
 
-@MapperScan(basePackages = {"com.zchzh.quartztest.mapper"})
+@MapperScan(basePackages = {"org.zchzh.quartz.mapper"})
 @SpringBootApplication
 public class QuartzTestApplication {
 

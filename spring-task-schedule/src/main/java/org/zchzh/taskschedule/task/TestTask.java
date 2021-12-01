@@ -17,8 +17,6 @@ import java.util.Random;
 @Component
 public class TestTask {
     Random random = new Random();
-
-
     /**
      * 间隔3s运行，fixedDelay表示上次任务结束后到下次任务开始之间的间隔为3s
      */
