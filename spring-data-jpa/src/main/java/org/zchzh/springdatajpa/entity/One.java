@@ -18,5 +18,5 @@ public class One {
     // 解决 lombok 生成的toString 方法循环调用问题
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "one", fetch = FetchType.EAGER)
-    private List<Many> manies;
+    private List<Many> manyList;
 }
