@@ -10,6 +10,7 @@ import org.zchzh.springdatajpa.entity.Many;
 import org.zchzh.springdatajpa.entity.One;
 import org.zchzh.springdatajpa.repository.ManyRepo;
 import org.zchzh.springdatajpa.repository.OneRepo;
+import org.zchzh.springdatajpa.service.impl.OneService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class OneToManyTests {
     private ManyRepo manyRepo;
 
     private static final long ONE_ID = 1L;
-    @BeforeEach
+//    @BeforeEach
     @Test
     void init() {
         One one = new One();
@@ -76,9 +77,38 @@ public class OneToManyTests {
         }
     }
 
-    @AfterEach
-    void delete() {
+    @Test
+    void addManyOne() {
+        One one = new One();
+        one.setId(999L);
+        Many many = new Many();
+        many.setOne(one);
+        many.setId(9990L);
+        one.getManyList().add(many);
+        manyRepo.saveAndFlush(many);
+
+        One one1 = oneRepo.findById(999L).orElse(new One());
+        log.info(one1.toString());
+        for (Many m : one1.getManyList()) {
+            log.info(m.toString());
+        }
+    }
+
+//    @AfterEach
+    @Test
+    void deleteOne() {
         oneRepo.deleteById(ONE_ID);
+    }
+
+
+    @Autowired
+    private OneService oneService;
+
+    @Test
+    void deleteMany() {
+//        manyRepo.deleteAll();
+//        manyRepo.deleteById(0L);
+//        oneService.deleteMany();
     }
 
 
