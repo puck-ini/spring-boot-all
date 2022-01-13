@@ -2,7 +2,7 @@ package org.zchzh.springdatajpa.service;
 
 
 import org.springframework.data.domain.Page;
-import org.zchzh.springdatajpa.entity.UserEntity;
+import org.zchzh.springdatajpa.entity.common.UserEntity;
 import org.zchzh.springdatajpa.request.SearchReq;
 import org.zchzh.springdatajpa.types.Username;
 

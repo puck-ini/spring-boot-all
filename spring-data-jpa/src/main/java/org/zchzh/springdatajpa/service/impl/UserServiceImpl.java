@@ -6,17 +6,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zchzh.springdatajpa.entity.UserDetail;
-import org.zchzh.springdatajpa.entity.UserEntity;
+import org.zchzh.springdatajpa.entity.common.UserDetail;
+import org.zchzh.springdatajpa.entity.common.UserEntity;
 import org.zchzh.springdatajpa.repository.UserRepo;
 import org.zchzh.springdatajpa.request.SearchReq;
 import org.zchzh.springdatajpa.service.UserService;
 import org.zchzh.springdatajpa.types.Username;
-import org.zchzh.springdatajpa.util.SqlFilter;
 
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 

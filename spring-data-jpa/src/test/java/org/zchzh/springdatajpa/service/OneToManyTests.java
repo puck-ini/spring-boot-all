@@ -1,13 +1,11 @@
 package org.zchzh.springdatajpa.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.zchzh.springdatajpa.entity.Many;
-import org.zchzh.springdatajpa.entity.One;
+import org.zchzh.springdatajpa.entity.onemany.Many;
+import org.zchzh.springdatajpa.entity.onemany.One;
 import org.zchzh.springdatajpa.repository.ManyRepo;
 import org.zchzh.springdatajpa.repository.OneRepo;
 import org.zchzh.springdatajpa.service.impl.OneService;

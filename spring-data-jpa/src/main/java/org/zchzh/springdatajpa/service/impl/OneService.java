@@ -3,8 +3,8 @@ package org.zchzh.springdatajpa.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zchzh.springdatajpa.entity.Many;
-import org.zchzh.springdatajpa.entity.One;
+import org.zchzh.springdatajpa.entity.onemany.Many;
+import org.zchzh.springdatajpa.entity.onemany.One;
 import org.zchzh.springdatajpa.repository.ManyRepo;
 import org.zchzh.springdatajpa.repository.OneRepo;
 

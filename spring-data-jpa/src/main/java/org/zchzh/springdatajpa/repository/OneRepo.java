@@ -1,7 +1,7 @@
 package org.zchzh.springdatajpa.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.zchzh.springdatajpa.entity.One;
+import org.zchzh.springdatajpa.entity.onemany.One;
 
 /**
  * @author zengchzh

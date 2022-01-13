@@ -1,4 +1,4 @@
-package org.zchzh.springdatajpa.entity;
+package org.zchzh.springdatajpa.entity.onemany;
 
 import lombok.Data;
 import lombok.ToString;

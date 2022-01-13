@@ -1,9 +1,10 @@
-package org.zchzh.springdatajpa.entity;
+package org.zchzh.springdatajpa.entity.common;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.hibernate.annotations.Where;
+import org.zchzh.springdatajpa.entity.BaseEntity;
 import org.zchzh.springdatajpa.types.Password;
 import org.zchzh.springdatajpa.types.UserType;
 import org.zchzh.springdatajpa.types.Username;
