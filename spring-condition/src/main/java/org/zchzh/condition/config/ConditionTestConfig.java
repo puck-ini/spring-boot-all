@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import org.zchzh.condition.annotation.TestMyCondition;
 import org.zchzh.condition.condition.TestCondition;
 import org.zchzh.condition.test.*;
 
@@ -77,7 +78,8 @@ public class ConditionTestConfig {
      * @return
      */
     @Bean
-    @Conditional(TestCondition.class)
+//    @Conditional(TestCondition.class)
+    @TestMyCondition(value = "testtesttest")
     public Print hiPrint() {
         Print print = new HiPrint();
         print.print();
