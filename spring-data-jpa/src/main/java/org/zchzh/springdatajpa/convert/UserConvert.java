@@ -2,7 +2,7 @@ package org.zchzh.springdatajpa.convert;
 
 import lombok.extern.slf4j.Slf4j;
 import org.zchzh.springdatajpa.dto.UserDTO;
-import org.zchzh.springdatajpa.entity.UserEntity;
+import org.zchzh.springdatajpa.entity.common.UserEntity;
 
 /**
  * @author zengchzh

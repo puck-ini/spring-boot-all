@@ -1,25 +1,24 @@
-package org.zchzh.springdatajpa.entity;
+package org.zchzh.springdatajpa.entity.inherit;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * @author zengchzh
- * @date 2021/7/15
+ * @date 2022/1/13
  */
+
+@ToString
 @Data
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
-public class UserDetail2 implements Serializable {
+public class Parent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
-    private Integer age;
-
-    private String address;
 }

@@ -1,4 +1,4 @@
-package org.zchzh.springdatajpa.entity;
+package org.zchzh.springdatajpa.entity.common;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

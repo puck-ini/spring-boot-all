@@ -1,7 +1,8 @@
-package org.zchzh.springdatajpa.entity;
+package org.zchzh.springdatajpa.entity.common;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.zchzh.springdatajpa.entity.BaseEntity;
 
 import javax.persistence.Entity;
 
@@ -12,7 +13,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-public class Role extends BaseEntity{
+public class Role extends BaseEntity {
 
     private String name;
 
