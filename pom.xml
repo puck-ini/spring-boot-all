@@ -54,6 +54,7 @@
         <module>spring-interceptor</module>
         <module>spring-security-oauth2-sso</module>
         <module>spring-load</module>
+        <module>spring-webclient</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
