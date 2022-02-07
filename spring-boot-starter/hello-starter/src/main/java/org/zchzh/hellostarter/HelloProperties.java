@@ -10,7 +10,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("test")
 public class HelloProperties {
 
-    private String msg;
+    private String msg = "msg";
+
+    private TestEnum aenum;
 
     public String getMsg() {
         return msg;
@@ -18,5 +20,13 @@ public class HelloProperties {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public TestEnum getAenum() {
+        return aenum;
+    }
+
+    public void setAenum(TestEnum aenum) {
+        this.aenum = aenum;
     }
 }

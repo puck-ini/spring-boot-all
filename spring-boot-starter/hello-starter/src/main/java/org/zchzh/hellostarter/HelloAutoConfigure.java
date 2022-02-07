@@ -1,9 +1,9 @@
 package org.zchzh.hellostarter;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,25 +12,23 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ConditionalOnClass(HelloService.class)
-@EnableConfigurationProperties(HelloProperties.class)
+//@ConditionalOnClass(HelloService.class)
+//@EnableConfigurationProperties(HelloProperties.class)
 public class HelloAutoConfigure {
 
-    private final HelloProperties helloProperties;
-
-    public HelloAutoConfigure(HelloProperties helloProperties) {
-        this.helloProperties = helloProperties;
+    @Bean
+    public HelloProperties helloProperties() {
+        return new HelloProperties();
     }
-
-
     @Bean
     @ConditionalOnMissingBean
-    public HelloService helloService() {
+    public HelloService helloService(@Autowired HelloProperties helloProperties) {
         return new HelloService(helloProperties.getMsg());
     }
 
 
     @Bean
+    @Conditional(TestCondition.class)
     public HelloController helloController() {
         return new HelloController();
     }

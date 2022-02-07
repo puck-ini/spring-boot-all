@@ -17,8 +17,16 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
+//    @Autowired
+//    private NameProp nameProp;
+
     @GetMapping("/msg")
     public String get() {
         return helloService.get();
     }
+//
+//    @GetMapping("/name")
+//    public String getTest() {
+//        return nameProp.getConfig();
+//    }
 }

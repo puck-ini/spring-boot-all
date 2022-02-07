@@ -1,2 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.zchzh.hellostarter.HelloAutoConfigure
+  org.zchzh.hellostarter.HelloAutoConfigure
+
+
+# 如果有多个配置文件用 , 分割，换行的话用 ,\分割

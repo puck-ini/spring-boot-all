@@ -1,2 +1,4 @@
+#test:
+#  msg: hello world!
 test:
-  msg: hello world!
+  aenum: a
