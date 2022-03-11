@@ -7,3 +7,7 @@ info:
   name: info
   version: 1.0.0
   enable: true
+
+info4:
+  namekey: 123
+  name-type: 123

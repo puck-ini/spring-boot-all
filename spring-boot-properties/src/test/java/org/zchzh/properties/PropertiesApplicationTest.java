@@ -3,10 +3,7 @@ package org.zchzh.properties;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.zchzh.properties.config.InfoProperties;
-import org.zchzh.properties.config.InfoProperties1;
-import org.zchzh.properties.config.InfoProperties2;
-import org.zchzh.properties.config.UserProperties;
+import org.zchzh.properties.config.*;
 
 /**
  * @author zengchzh
@@ -28,11 +25,16 @@ public class PropertiesApplicationTest {
     @Autowired
     private InfoProperties2 infoProperties2;
 
+    @Autowired
+    private InfoProperties4 infoProperties4;
+
     @Test
     public void test1() {
         System.out.println(infoProperties);
         System.out.println(userProperties);
         System.out.println(infoProperties1);
         System.out.println(infoProperties2);
+
+        System.out.println(infoProperties4);
     }
 }
