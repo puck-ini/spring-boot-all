@@ -1,5 +1,6 @@
 package org.zchzh.swagger.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -22,9 +23,13 @@ import java.util.List;
 @Configuration
 public class SwaggerConfig {
 
+    @Value("${swagger.enable}")
+    private boolean enable;
+    
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(enable)
                 .apiInfo(apiInfo())
                 .select()
                 .build()
