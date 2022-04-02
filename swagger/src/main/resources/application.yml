@@ -1,6 +1,8 @@
 server:
   port: 9990
+  servlet:
+    context-path: /api
 
 
 swagger:
-  enable: false
+  enable: true

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestParameterBuilder;
 import springfox.documentation.schema.ScalarType;
 import springfox.documentation.service.ApiInfo;
@@ -32,6 +33,8 @@ public class SwaggerConfig {
                 .enable(enable)
                 .apiInfo(apiInfo())
                 .select()
+                // 通过url过滤一些 swagger 自带的接口
+                .paths(PathSelectors.regex("(?!/.*/error.*).*"))
                 .build()
                 .globalRequestParameters(globalRequestParameters());
     }
