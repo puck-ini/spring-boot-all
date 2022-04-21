@@ -29,7 +29,8 @@ public class SwaggerConfig {
     
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
+        // DocumentationType.OAS_30 表示使用的是swagger 3.0
+        return new Docket(DocumentationType.OAS_30)
                 .enable(enable)
                 .apiInfo(apiInfo())
                 .select()
