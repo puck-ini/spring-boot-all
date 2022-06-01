@@ -1,6 +1,23 @@
 server:
   port: 9002
 
+management:
+  endpoint:
+    health:
+      # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: testServer
+  boot:
+    admin:
+      client:
+        url: http://localhost:9002
+
 # spring boot admin 不会保存客户端记录，可以通过邮件的方式当指标出现问题时发送告警邮件
 #spring:
 #  # 邮件服务器配置
