@@ -1,0 +1,27 @@
+server:
+  port: 9002
+
+# spring boot admin 不会保存客户端记录，可以通过邮件的方式当指标出现问题时发送告警邮件
+#spring:
+#  # 邮件服务器配置
+#  mail:
+#    host: test
+#    username: test
+#    password: test
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          ssl:
+#            enable: true
+#  boot:
+#    admin:
+#      notify:
+#        mail:
+#          enabled: true
+#          # 邮件接收
+#          to: test@test.com
+#          # 邮件发送
+#          from: test@test.com
+
+
