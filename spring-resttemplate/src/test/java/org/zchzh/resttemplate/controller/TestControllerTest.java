@@ -2,6 +2,7 @@ package org.zchzh.resttemplate.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,12 +12,16 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.client.RequestCallback;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.zchzh.resttemplate.model.Result;
 import org.zchzh.resttemplate.model.TestReq;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.Collections;
@@ -144,5 +149,23 @@ class TestControllerTest {
         Result result = responseEntity.getBody();
         Assert.assertNotNull(result);
         log.info(result.toString());
+    }
+
+
+    @Test
+    void download() {
+        // 添加header
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("test","test");
+        HttpEntity httpEntity = new HttpEntity(httpHeaders);
+        RequestCallback requestCallback = restTemplate.httpEntityCallback(httpEntity);
+
+        File file = restTemplate.execute("http://localhost:9091/file//download/" + "2", HttpMethod.GET, requestCallback, clientHttpResponse -> {
+            File ret = File.createTempFile("test", ".xlsx");
+            StreamUtils.copy(clientHttpResponse.getBody(), new FileOutputStream(ret));
+            return ret;
+        });
+        Assertions.assertNotNull(file);
+        log.info("file name :{} , file size : {}", file.getName(), file.length());
     }
 }
