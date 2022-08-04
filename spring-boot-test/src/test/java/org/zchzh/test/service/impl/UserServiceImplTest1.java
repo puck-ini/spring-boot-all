@@ -1,30 +1,27 @@
 package org.zchzh.test.service.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.*;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.zchzh.test.dto.UserDTO;
+import org.zchzh.test.entity.User;
 import org.zchzh.test.repo.UserRepo;
 import org.zchzh.test.request.CreateReq;
 import org.zchzh.test.request.LoginReq;
 import org.zchzh.test.service.UserService;
 import org.zchzh.test.service.VerifyCodeService;
 
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 @Slf4j
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 class UserServiceImplTest1 {
 
     @Autowired
@@ -36,29 +33,15 @@ class UserServiceImplTest1 {
     @Autowired
     private VerifyCodeService verifyCodeService;
 
-    @LocalServerPort
-    private int port;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
 
-    ObjectMapper mapper = new ObjectMapper();
-
-//    @BeforeEach
-//    void initTestData() {
-//        User user = new User();
-//        user.setUsername("test");
-//        user.setPassword("test");
-//        userRepo.save(user);
-//    }
-//
-//    @AfterEach
-//    void deleteTestData() {
-//        User user = userRepo.findByUsername("test");
-//        if (Objects.nonNull(user)) {
-//            userRepo.deleteById(user.getId());
-//        }
-//    }
+    @BeforeEach
+    void initTestData() {
+        User user = new User();
+        user.setUsername("test");
+        user.setPassword("test");
+        userRepo.save(user);
+    }
 
     /**
      * 测试成功流程
@@ -67,9 +50,9 @@ class UserServiceImplTest1 {
     @DisplayName("登陆成功测试")
     void loginSuccess() {
         LoginReq req = LoginReq.builder().username("test").password("test").code(verifyCodeService.getCode()).build();
-        UserDTO expect = UserDTO.builder().id(1L).username("test").build();
+        UserDTO expect = UserDTO.builder().username("test").build();
         UserDTO actual = userService.login(req);
-        assertEquals(expect, actual);
+        assertEquals(expect.getUsername(), actual.getUsername());
     }
 
     /**
@@ -131,22 +114,4 @@ class UserServiceImplTest1 {
     void list() {
         log.info(userRepo.findAll().toString());
     }
-
-
-
-    @Test
-    void httpLoginSuccess() throws JsonProcessingException {
-        LoginReq req = LoginReq.builder().username("test").password("test").code(verifyCodeService.getCode()).build();
-        UserDTO expect = UserDTO.builder().id(1L).username("test").build();
-        String jsonReq = mapper.writeValueAsString(req);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> httpEntity = new HttpEntity<>(jsonReq, httpHeaders);
-        String url = "http://127.0.0.1:" + port + "/user/login";
-        ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST, httpEntity, String.class);
-        String jsonResult = result.getBody();
-        UserDTO actual = mapper.readValue(jsonResult, UserDTO.class);
-        assertEquals(expect, actual);
-    }
-
 }

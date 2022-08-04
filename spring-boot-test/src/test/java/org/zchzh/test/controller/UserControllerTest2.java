@@ -14,7 +14,7 @@ import org.zchzh.test.service.UserService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserControllerTest {
+class UserControllerTest2 {
 
     @InjectMocks
     private UserController userController = new UserController();
