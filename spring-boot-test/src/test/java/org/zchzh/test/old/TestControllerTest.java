@@ -1,4 +1,4 @@
-package org.zchzh.test;
+package org.zchzh.test.old;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,9 +7,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.zchzh.test.controller.TestController;
+import org.zchzh.test.service.old.TestService;
+import org.zchzh.test.service.old.TestService1;
+import org.zchzh.test.service.old.TestServiceImpl;
 
 import java.util.Objects;
 

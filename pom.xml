@@ -70,6 +70,7 @@
         <fastjson.version>1.2.75</fastjson.version>
         <quertdsl.version>4.3.1</quertdsl.version>
         <xxljob.version>2.3.0</xxljob.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
     </properties>
     <dependencies>
 <!--        <dependency>-->
@@ -175,6 +176,12 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxljob.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

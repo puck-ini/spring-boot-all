@@ -1,4 +1,4 @@
-package org.zchzh.test;
+package org.zchzh.test.service.old;
 
 /**
  * @author zengchzh

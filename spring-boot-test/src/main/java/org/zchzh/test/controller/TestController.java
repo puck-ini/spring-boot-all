@@ -1,7 +1,8 @@
-package org.zchzh.test;
+package org.zchzh.test.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.zchzh.test.service.old.TestService;
 
 /**
  * @author zengchzh
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
 
     @Autowired
-    private TestService  testService;
+    private TestService testService;
 
     @GetMapping("/msg")
     public String get() {
