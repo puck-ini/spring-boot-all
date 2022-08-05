@@ -1,9 +1,18 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    username: postgres
+    driver-class-name: org.h2.Driver
+    username: h2db
     password: root
-    url: jdbc:postgresql://127.0.0.1:5432/test_data?currentSchema=test_data
+    url: jdbc:h2:file:D:\testdata\jpa-db
+  h2:
+    # 配置 h2 控制台界面
+    console:
+      # 默认为false关闭控制台
+      enabled: true
+      path: /h2console
+      settings:
+        trace: false
+        web-allow-others: false
   jpa:
     show-sql: true
     hibernate:
