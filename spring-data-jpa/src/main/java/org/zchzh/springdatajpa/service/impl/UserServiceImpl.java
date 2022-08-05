@@ -62,11 +62,6 @@ public class UserServiceImpl extends AbstractCrudService<UserEntity, Long> imple
                 return query.getRestriction();
             }
         };
-//        List<SqlFilter> sqlFilters = new ArrayList<>();
-//        sqlFilters.add(SqlFilter.andGe("createTime", req.getStart()));
-//        sqlFilters.add(SqlFilter.andLe("createTime", req.getEnd()));
-//        UserEntity entity = new UserEntity();
-//        return userRepo.findAll(new UserEntity().toSpecification(sqlFilters), PageRequest.of(req.getPageNum(), req.getPageSize()));
         return userRepo.findAll(specification, PageRequest.of(req.getPageNum(), req.getPageSize()));
     }
 
