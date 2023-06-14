@@ -66,7 +66,7 @@
         <quartz.version>2.3.0</quartz.version>
         <mybatis.mapper.version>2.1.0</mybatis.mapper.version>
         <mybatis.pagehelper.version>1.2.10</mybatis.pagehelper.version>
-        <guava.version>30.0-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
         <fastjson.version>1.2.83</fastjson.version>
         <quertdsl.version>4.3.1</quertdsl.version>
         <xxljob.version>2.3.0</xxljob.version>
