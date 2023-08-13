@@ -58,6 +58,7 @@
         <module>spring-spel</module>
         <module>spring-boot-admin</module>
         <module>session</module>
+        <module>mybatis</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

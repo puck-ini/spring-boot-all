@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zchzh.mybatis.dao.MyUserDao">
+    <insert id="insertBatchV1" parameterType="java.util.List">
+        start transaction;
+        <foreach collection="myUserList" index="index" item="item">
+            insert into myuser(name, des, addr, msg) values(#{item.name},#{item.des},#{item.addr},#{item.msg});
+
+        </foreach>
+        commit;
+    </insert>
+
+    <insert id="insertBatchV2" parameterType="java.util.List">
+        insert into myuser(name, des, addr, msg)
+        <foreach collection="myUserList" index="index" item="item" separator=" union all ">
+            select #{item.name}, #{item.des}, #{item.addr}, #{item.msg}
+        </foreach>
+    </insert>
+
+    <insert id="insertBatchV3" parameterType="java.util.List">
+        <foreach collection="myUserList" index="index" item="item">
+            insert into myuser(name, des, addr, msg) values(#{item.name},#{item.des},#{item.addr},#{item.msg});
+        </foreach>
+    </insert>
+
+    <insert id="insertBatchV4" parameterType="java.util.List">
+        insert into myuser(name, des, addr, msg) values
+        <foreach collection="myUserList" index="index" item="item" separator=",">
+            (#{item.name},#{item.des},#{item.addr},#{item.msg})
+        </foreach>
+    </insert>
+</mapper>
